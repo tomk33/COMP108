@@ -21,28 +21,65 @@ public class StringApp {
 
   // Part 1
   public static String pow(String s, int n) {
-    // your code here
-    return "the n-fold concatenation of s";
+    String result = "";
+    if (n <= 0) return "";
+
+    for (int i=0; i<n; i++) {
+      result += s;
+    }
+    return result;
   }
 
   // Part 2
   public static int factorCount(String a, String f) {
-    // your code here
-    return 0;
+      int count = 0;
+
+      while (a.length() >= f.length()) {
+      int i= a.indexOf(f);
+      if (i == -1) {
+          break;
+      }
+      count++;
+      a = a.substring(i + f.length());
+    }
+    return count;
   }
 
   public static int factorCount(String a, String f, boolean caseSensitive) {
-    // your code here
-    return 0;
+    int count = 0;
+
+    if (!caseSensitive) {
+      a = a.toLowerCase();
+      f = f.toLowerCase();
+    }
+
+    while (a.length() >= f.length()) {
+        int i= a.indexOf(f);
+        if (i == -1) {
+            break;
+        }
+        count++;
+        a = a.substring(i + f.length());
+    }
+    return count;
   }
 
   // Part 3
   public static void main(String[] args) {
-    String input = args[0];
+    String input = args[0].toLowerCase();
+    if (input.length()==0) return;
 
-    for (char letter = 'a'; letter <= 'z'; letter++) { // why does this work?
-      // replace the next line. Can you explain what + means here and why?
-      System.out.println(letter + ": " + 0);
+    int[] counts = new int[26];
+
+    for (int i = 0; i < input.length(); i++) {
+        char ch = input.charAt(i);
+        if (ch >= 'a' && ch <= 'z') {
+            counts[ch - 'a']++;
+        }
+    }
+
+    for (char letter = 'a'; letter <= 'z'; letter++) {
+        System.out.println(letter + ": " + counts[letter - 'a']);
     }
   }
 }

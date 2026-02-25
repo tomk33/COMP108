@@ -40,9 +40,9 @@ public class Caesar {
 
     /**
      * Main method takes a shift and a message and performs the Caesar cipher.
+     * args[0] is the integer shift amount.
+     * args[1] is the message text to be encrypted.
      * @param args Command line arguments.
-     * args[0] should be the shift integer.
-     * args[1] should be the message text.
      */
     public static void main(String[] args) {
         if (args.length < 2) {

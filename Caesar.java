@@ -1,9 +1,13 @@
 /**
- * A class that implements a Caesar cipher
+ * A class that implements a Caesar cipher.
+ * @author Tom Kelly
  */
 public class Caesar {
     /**
-     * A class that shifts a character by a given amount
+     * Shifts/Rotates an alphabetic character by a given amount.
+     * @param shift The number of positions to move forwards (+ve) or backwards (-ve) in the alphabet.
+     * @param ch The character to be rotated.
+     * @return The rotated character if alphabetic, otherwise the original character.
      */
     public static char rotate(int shift, char ch) {
         char baseChar;
@@ -17,13 +21,14 @@ public class Caesar {
         }
 
         int unicodeSum = (ch - baseChar + (shift % 26) + 26) % 26;
-        char k = (char) (unicodeSum + baseChar);
-        return k;
-        
+        return (char) (unicodeSum + baseChar);
     }
 
     /**
-     * Rotates an entire string by a given shift.
+     * Rotates an entire string of characters by a given shift (essentially encrypting it).
+     * @param shift The number of positions to shift each character.
+     * @param str The string to be encrypted.
+     * @return A new string containing the shifted characters.
      */
     public static String rotate(int shift, String str) {
         String newStr = "";
@@ -34,7 +39,10 @@ public class Caesar {
     }
 
     /**
-     * Main method to handle command line arguments and print the result
+     * Main method takes a shift and a message and performs the Caesar cipher.
+     * @param args Command line arguments.
+     * args[0] should be the shift integer.
+     * args[1] should be the message text.
      */
     public static void main(String[] args) {
         if (args.length < 2) {

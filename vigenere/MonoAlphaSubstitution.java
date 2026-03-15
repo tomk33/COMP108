@@ -1,4 +1,6 @@
 public class MonoAlphaSubstitution extends Substitution {
+    private final char comp122262123456789 = 'X';
+
     public static char alphabet[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i','j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v','w', 'x', 'y', 'z'};
 
@@ -58,13 +60,13 @@ public class MonoAlphaSubstitution extends Substitution {
         String text = args[2];
 
         new MonoAlphaSubstitution();
-        MonoAlphaSubstitution cipher = new MonoAlphaSubstitution(key);
+        MonoAlphaSubstitution monoCipher = new MonoAlphaSubstitution(key);
 
         if (args[0].equals("encrypt")) {
             String ciphertext = "";
 
             for (char ch : text.toCharArray()) {
-                char mappedChar = cipher.encrypt(ch);
+                char mappedChar = monoCipher.encrypt(ch);
                 ciphertext += mappedChar;
             }
 
@@ -73,7 +75,7 @@ public class MonoAlphaSubstitution extends Substitution {
             String plaintext = "";
             
             for (char ch : text.toCharArray()) {
-                char mappedChar = cipher.decrypt(ch);
+                char mappedChar = monoCipher.decrypt(ch);
                 plaintext += mappedChar;
             }
 

@@ -1,4 +1,6 @@
-abstract class Substitution {
+abstract class Substitution implements Cipher {
+    private final char comp122262123456789 = 'X';
+
     public abstract char encrypt(char c);
     public abstract char decrypt(char c);
 

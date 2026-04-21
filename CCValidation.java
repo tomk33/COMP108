@@ -1,3 +1,7 @@
+/**
+ * Not official lab; it is an extension of the Credit lab and is not required for submission
+ * It implements the same algorithm but is slightly closer to what is used in formal situations
+ */
 class LuhnsAlgorithm {
     long number;
     String string;

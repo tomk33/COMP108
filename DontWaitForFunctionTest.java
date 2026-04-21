@@ -33,11 +33,10 @@ class LuhnsAlgorithm {
             sumProduct += untouchedValue;
         }
 
-        // Checks if the result of Luhn's algorithm doesn't end with a '0', otherwise it calls main method again for input
+        // Checks if the result of Luhn's algorithm doesn't end with a '0', otherwise it exits with err: 1
         if (!Integer.toString(sumProduct).endsWith("0")) {
             System.err.println("INVALID NUMBER");
-            // CCValidation.main(null);
-            // System.exit(1);
+            System.exit(1);
         }
 
         return true;
@@ -81,17 +80,15 @@ public class DontWaitForFunctionTest {
 
         LuhnsAlgorithm numberCheck = new LuhnsAlgorithm(number, string);
         
-        // THIS IS THE NOT WAITING PART !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         Runnable myrunnable = new Runnable() {
             public void run() {
                 numberCheck.CardType();
             }
         };
 
-        new Thread(myrunnable).start(); //Call it when you need to run the function
-        // IT ENDS HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        new Thread(myrunnable).start(); // Call it when you need to run the function
 
-        if (numberCheck.CardType()==null && !numberCheck.LuhnsNumber()) {System.out.println("Number invalid"); DontWaitForFunctionTest.main(null);} 
+        if (numberCheck.CardType()==null || !numberCheck.LuhnsNumber()) {System.out.println("Number invalid"); DontWaitForFunctionTest.main(null);} 
         
         // Print card type
         System.out.println(numberCheck.CardType().toString().toUpperCase());
